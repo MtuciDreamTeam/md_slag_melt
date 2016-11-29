@@ -134,7 +134,7 @@ public class main {
          dx = dx - Math.signum(dx)*Lx;   
         }
         if (Math.abs(dy) > 0.5*Ly){
-         dy = dy - Math.signum(dy)*Lx;   
+         dy = dy - Math.signum(dy)*Ly;   
         }
     }
     public static void force() {
