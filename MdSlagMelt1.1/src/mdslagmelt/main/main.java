@@ -122,8 +122,8 @@ public class main {
                 force();
                 ax[i] = ax[i] + f*dx;
                 ay[i] = ay[i] + f*dy;
-                ax[i] = ax[j] - f*dx;
-                ay[i] = ay[j] - f*dy;
+                ax[j] = ax[j] - f*dx;
+                ay[j] = ay[j] - f*dy;
                 pe += potential; 
             }
         }
