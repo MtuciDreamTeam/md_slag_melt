@@ -1,0 +1,69 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <a href="#" id="prev">Назад</a>
+    <a href="#" id="next">Вперед</a>
+    <div id="step"></div>
+    <div id="block" style="margin:0 auto; position:relative;width:320px; height: 90px; border-bottom: 1px solid black;border: 1px solid black"></div>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    
+    
+        
+     $(document).ready(function() {
+       var main = document.getElementById("block");
+       var i = 0;
+       var step = document.getElementById("step");
+       step.innerHTML = "Шаг №: "+i;
+       $("#prev").click(function (){
+          if (i>0) --i;
+          loadData();
+           
+       });
+       
+       $("#next").click(function (){
+            if (i<100) ++i;
+            loadData();  
+       });
+       function loadData(){
+         main.innerHTML = "";
+         step.innerHTML = "Шаг №: "+i;
+         $.ajax({url: "points.json",
+                type: 'get',
+                dataType: 'json'
+                
+        }).done(function(data) {
+            data[i].X = JSON.parse(data[i].X);
+            data[i].Y = JSON.parse(data[i].Y);
+            for (var j=0;j<data[i].X.length;j++){
+                var div = document.createElement("div");
+                div.setAttribute("style","background-color:red;border-radius:50%;position:absolute;width:2px;height:2px;border:2px solid red;top:"+data[i].Y[j]*5+";left:"+data[i].X[j]*5);
+                main.appendChild(div);
+            }
+        });
+       } 
+     });  
+   
+    </script>
+</body>
+</html>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
