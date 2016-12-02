@@ -92,7 +92,7 @@ public class main {
             ke = ke + 0.5*(Math.pow(vx[i], 2) + Math.pow(vy[i], 2));
         }
 
-        jsonObj = writeToJsonObject(x,y,vx,vx,ax,ay,ke,pe,f);
+        jsonObj = writeToJsonObject(x,y,vx,vy,ax,ay,ke,pe,f);
         return jsonObj;
     }
 
